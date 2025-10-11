@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miljohn F. Merto | Strategic & Technical Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Base Styles and Background */
+        body {
+            font-family: 'Inter', sans-serif; 
+            background-color: black; 
+            color: #e2e8f0; 
+            transition: background-color 0.5s;
+        }
+        
+        /* Subtle Noise/Grid Texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03; 
+            pointer-events: none;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0wIDhoMTAwMHYxMDAwSDB6Ii8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIxMjMyIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1vcGFjaXR5PSIuMiIgZD0iTTAgMGgxMDAwdjEwMDBIMHoiLz48L3N2Zz4=');
+            background-size: 50px 50px;
+        }
+
+        /* --- New: Glassmorphism Effect for Dark Mode Cards --- */
+        .dark .pro-card-glass {
+            background-color: rgba(30, 41, 59, 0.7); /* slate-800 with transparency */
+            backdrop-filter: blur(8px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(163, 230, 53, 0.2);
+        }
+        /* Override border/ring for non-card blocks */
+        .dark #vision-block, .dark #contact-block {
+            background-color: rgba(30, 41, 59, 0.7); 
+        }
+
+        /* Enhanced Card Hover with Green Glow */
+        .pro-card-hover {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .pro-card-hover:hover {
+            transform: translateY(-8px) scale(1.02); 
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.8), 
+                0 0 20px rgba(163, 230, 53, 0.6); 
+            border-color: #a3e635 !important;
+        }
+
+        /* Interactive Icon Enhancement */
+        .icon-group-hover {
+            transition: all 0.3s ease;
+        }
+        .icon-group-hover:hover .card-icon {
+            transform: scale(1.3);
+            color: #a3e635; /* Primary accent color */
+            filter: drop-shadow(0 0 5px rgba(163, 230, 53, 0.5));
+        }
+        .icon-group-hover:hover .card-title {
+            color: #a3e635 !important; 
+        }
+        
+        /* Neon Text Shadow effect for the main title */
+        .neon-text {
+            text-shadow: 0 0 5px rgba(163, 230, 53, 0.5), 0 0 10px rgba(163, 230, 53, 0.3);
+        }
+
+        /* Primary Accent Color - Lime/Electric Green */
+        .accent-text {
+            color: #a3e635; 
+        }
+
+        /* Profile Image Glitch/Monochrome Effect */
+        #profile-image {
+            filter: grayscale(100%) contrast(150%);
+            box-shadow: 0 0 20px rgba(163, 230, 53, 0.4); 
+            border-color: #a3e635; 
+            transition: all 0.5s ease;
+        }
+        #profile-image:hover {
+            filter: grayscale(0%) contrast(100%); 
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+        
+        /* Light Mode Overrides */
+        .light .neon-text {
+            text-shadow: none;
+        }
+        .light #profile-image {
+            filter: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-color: #1e3a8a;
+        }
+        .light .icon-group-hover:hover .card-icon {
+            color: #1e3a8a; 
+            filter: none;
+        }
+        .light .icon-group-hover:hover .card-title {
+            color: #1e3a8a !important;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12 dark" id="body-main">
+    <div class="max-w-6xl mx-auto bg-slate-900 shadow-2xl rounded-2xl overflow-hidden ring-1 ring-gray-700" id="main-container">
+        
+        <header class="p-10 bg-gray-950 text-center border-b border-lime-400/50 flex justify-between items-center relative" id="header-container">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-green-400 to-emerald-500 pb-2 flex-grow neon-text">
+                JohnJo Merto: Strategic Profile
+            </h1>
+            
+            <button id="theme-toggle" class="absolute top-4 right-4 p-3 rounded-full bg-slate-700 text-lime-400 shadow-lg hover:bg-slate-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-lime-500">
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+
+            <p class="text-slate-600 mt-3 text-sm italic absolute w-full left-0 bottom-3" id="header-quote">
+                Strategic Confidence: "Nights Are mainly made for saying things that you can't say tomorrow day."
+            </p>
+        </header>
+
+        <section class="flex flex-col md:flex-row items-center justify-center py-12 px-10 space-y-10 md:space-y-0 md:space-x-16 bg-slate-900 border-b border-gray-800" id="summary-section">
+            <div id="profile-image-container">
+                <img 
+                    src="https://placehold.co/200x200/0c0d10/a3e635?text=J.J."
+                    alt="Professional profile image of JohnJo" 
+                    class="w-48 h-48 rounded-full ring-4 object-cover shadow-xl transition duration-500"
+                    id="profile-image" 
+                >
+            </div>
+            <div class="md:text-left text-center max-w-xl">
+                <h2 class="text-4xl font-bold accent-text mb-3 neon-text" id="h2-summary">Focused Drive and Technical Assurance</h2>
+                <p class="text-slate-400 leading-relaxed text-lg font-medium" id="p-summary">
+                    I approach complex problems with fierce assurance and an intense focus a deep infatuation for achieving mastery. My technical foundation is built on HTML for robust front end architecture, complemented by Python for back-end logic. I specialize in translating ambiguous requirements into clean, high-performance, and responsive code structures.
+                </p>
+            </div>
+        </section>
+
+        <div class="p-10 bg-slate-800 border-t border-gray-700" id="skills-container">
+            <h3 class="text-3xl font-bold text-green mb-8 border-b border-lime-400 pb-3" id="h3-skills">Core Competencies & Interests</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="skill-cards-grid">
+                
+                <div class="p-6 bg-slate-900 rounded-xl pro-card-hover border-t-4 border-lime-500 icon-group-hover pro-card-glass" data-card-bg="bg-slate-900">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-lime-400 card-icon transition duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <h4 class="text-xl font-semibold text-lime-300 card-title transition duration-300" data-text-accent="text-lime-300">Development Stack</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-orange-600/30 text-orange-300 ring-1 ring-orange-500/50">HTML (Robust)</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-600/30 text-blue-300 ring-1 ring-blue-500/50">Tailwind CSS (Learning)</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-lime-600/30 text-lime-300 ring-1 ring-lime-500/50">Python (Logic)</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-600/30 text-green-300 ring-1 ring-green-500/50">JS Frameworks (Upcoming)</span>
+                    </div>
+                    <p class="text-slate-400 text-sm" data-text-body="text-slate-400">
+                        Current focus on Python for back-end logic and actively preparing to dive into JavaScript frameworks (React/Angular).
+                    </p>
+                </div>
+
+                <div class="p-6 bg-slate-900 rounded-xl pro-card-hover border-t-4 border-sky-500 icon-group-hover pro-card-glass" data-card-bg="bg-slate-900">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-sky-400 card-icon transition duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <h4 class="text-xl font-semibold text-sky-300 card-title transition duration-300" data-text-accent="text-sky-300">All rounding Core Skills</h4>
+                    </div>
+                    <p class="text-slate-400" data-text-body="text-slate-400">
+                        High-stakes competitive experience in Mobile Legends. mediocore-stakes in other Online games, also in outdoor activity like basketball, soccer, badminton, and other.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-slate-900 rounded-xl pro-card-hover border-t-4 border-rose-500 icon-group-hover pro-card-glass" data-card-bg="bg-slate-900">
+                    <div class="flex items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-rose-400 card-icon transition duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        <h4 class="text-xl font-semibold text-rose-300 card-title transition duration-300" data-text-accent="text-rose-300">Music Playlist</h4>
+                    </div>
+                    <p class="text-slate-400" data-text-body="text-slate-400">
+                        Arctic Monkeys, Maroon 5, Giveon.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-10 grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-gray-700" id="vision-contact-section">
+            
+            <div class="p-6 bg-slate-800 rounded-lg shadow-2xl border-l-4 border-lime-600 ring-1 ring-lime-500/20 icon-group-hover pro-card-glass" id="vision-block">
+                <h3 class="text-2xl font-bold mb-4 flex items-center" data-text-accent="text-lime-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-lime-400 card-icon transition duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    <span class="card-title text-lime-400 transition duration-300">Entrepreneurial & Academic Vision</span>
+                </h3>
+                <ol class="list-decimal list-inside text-slate-300 space-y-2 font-medium ml-4" data-text-body="text-slate-300">
+                    <li>Complete collegiate studies with distinction.</li>
+                    <li>Achieve financial independence through high-impact development and entrepreneurial ventures.</li>
+                    <li class="font-bold text-lime-300">Establish a financial ecosystem where my net worth renders a "trillion" a minimal, relative figure, demonstrating success on a global scale.</li>
+                </ol>
+            </div>
+
+            <div class="p-6 bg-slate-800 rounded-lg shadow-2xl border-l-4 border-sky-600 ring-1 ring-sky-500/20 icon-group-hover pro-card-glass" id="contact-block">
+                <h3 class="text-2xl font-bold mb-4 flex items-center" data-text-accent="text-sky-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-sky-400 card-icon transition duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:merto.miljohn@llcc.edu.ph" class="card-title text-sky-400 hover:text-lime-400 transition duration-300">
+                        Contact & Key Metrics
+                    </a>
+                </h3>
+                <p class="text-slate-300 mb-2" data-text-body="text-slate-300">
+                    Email: <a href="mailto:merto.miljohn@llcc.edu.ph" class="text-lime-400 hover:text-sky-400 font-medium transition duration-200">merto.miljohn@llcc.edu.ph</a>
+                </p>
+                <p class="text-slate-300 mb-2" data-text-body="text-slate-300">
+                    Location: Marigondon, Lapu-Lapu City, Cebu.
+                </p>
+                <p class="text-slate-300" data-text-body="text-slate-300">
+                    Key Motivator: My romantic interest, <span class="text-rose-400 font-semibold">Saicey</span>, serves as a significant source of emotional drive and focused ambition, Just call her if anything happens to me <span class="text-green-300">(09615634743</span>).
+                </p>
+            </div>
+        </div>
+
+        <footer class="p-6 bg-gray-950 text-center text-slate-500 text-sm border-t border-gray-800" id="footer-container">
+            <p id="footer-text" class="text-slate-500">&copy; 2025 Miljohn F. Merto. <span id="footer-italic-text" class="italic text-slate-600">At nung humalik pabalik sakanya de na siya ma alis sa isipan ko.</span></p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const mainBody = document.getElementById('body-main');
+            const mainContainer = document.getElementById('main-container');
+            const headerContainer = document.getElementById('header-container');
+            const skillsContainer = document.getElementById('skills-container');
+            const footerContainer = document.getElementById('footer-container');
+
+            const summarySection = document.getElementById('summary-section');
+            const visionContactSection = document.getElementById('vision-contact-section');
+
+            const summaryH2 = document.getElementById('h2-summary');
+            const summaryP = document.getElementById('p-summary');
+            const skillsH3 = document.getElementById('h3-skills');
+            const headerQuote = document.getElementById('header-quote');
+            const footerP = document.getElementById('footer-text');
+            const footerItalic = document.getElementById('footer-italic-text');
+            const skillCards = document.querySelectorAll('#skill-cards-grid > div');
+            const visionBlock = document.getElementById('vision-block');
+            const contactBlock = document.getElementById('contact-block');
+            const accentTexts = document.querySelectorAll('[data-text-accent]');
+            const bodyTexts = document.querySelectorAll('[data-text-body]');
+            const profileImage = document.getElementById('profile-image');
+
+            
+            // --- Dark Mode Classes (High Contrast Neon) ---
+            const DARK_CLASSES = {
+                body: ['bg-[#0c0d10]', 'text-white'], 
+                mainContainer: ['bg-slate-900', 'ring-gray-700'],
+                summarySection: ['bg-slate-900', 'border-gray-800'], 
+                headerContainer: ['bg-gray-950', 'border-lime-400/50'],
+                skillsContainer: ['bg-slate-800', 'border-gray-700'],
+                visionContactContainer: ['border-gray-700'],
+                footerContainer: ['bg-gray-950', 'border-gray-800'],
+                textWhite: 'text-white', 
+                textSlate300: 'text-slate-400',
+                textSlate400: 'text-slate-400',
+                cardBg: ['pro-card-glass'], /* Changed to glass class */
+                sectionBg: ['pro-card-glass'], /* Changed to glass class */
+                toggleBg: 'bg-slate-700',
+                footerText: 'text-slate-500', 
+                headerQuoteText: 'text-slate-600',
+                footerItalicText: 'text-slate-600',
+                imageRing: 'ring-lime-500',
+                neonToggle: 'text-lime-400',
+                titleGlow: 'neon-text',
+                
+                // Light mode utility classes to remove
+                lightCardBg: ['bg-white'], 
+                lightSectionBg: ['bg-white'],
+                lightHeaderBorder: ['border-green-500/50'],
+                lightSkillsBorder: ['border-gray-200'],
+                lightVisionContactBorder: ['border-gray-200'],
+            };
+
+            // --- Light Mode Classes (Clean, Professional) ---
+            const LIGHT_CLASSES = {
+                body: ['bg-gray-100', 'text-gray-900'],
+                mainContainer: ['bg-white', 'ring-gray-300'],
+                summarySection: ['bg-white', 'border-gray-200'], 
+                headerContainer: ['bg-gray-100', 'border-green-700/50'], /* Border darker for contrast */
+                skillsContainer: ['bg-gray-50', 'border-gray-200'],
+                visionContactContainer: ['border-gray-200'],
+                footerContainer: ['bg-gray-100', 'border-gray-200'],
+                textWhite: 'text-gray-900', 
+                textSlate300: 'text-gray-700',
+                textSlate400: 'text-gray-600',
+                cardBg: ['bg-white'], 
+                sectionBg: ['bg-white'], 
+                toggleBg: 'bg-gray-200',
+                footerText: 'text-gray-700',
+                headerQuoteText: 'text-gray-700',
+                footerItalicText: 'text-gray-500',
+                imageRing: 'ring-green-800',
+                neonToggle: 'text-gray-800',
+                titleGlow: '',
+
+                // Dark mode utility classes to remove
+                darkCardBg: ['pro-card-glass'],
+                darkSectionBg: ['pro-card-glass'],
+                darkHeaderBorder: ['border-lime-400/50'],
+                darkSkillsBorder: ['border-gray-700'],
+                darkVisionContactBorder: ['border-gray-700'],
+            };
+
+            const applyTheme = (theme) => {
+                const isDark = theme === 'dark';
+                const current = isDark ? DARK_CLASSES : LIGHT_CLASSES;
+                const opposite = isDark ? LIGHT_CLASSES : DARK_CLASSES;
+                
+                // 1. Core Structure BG and Borders
+                mainBody.classList.remove(opposite.body[0], opposite.body[1]);
+                mainBody.classList.add(current.body[0], current.body[1]);
+                
+                [
+                    { element: mainContainer, dark: DARK_CLASSES.mainContainer, light: LIGHT_CLASSES.mainContainer },
+                    { element: headerContainer, dark: DARK_CLASSES.headerContainer, light: LIGHT_CLASSES.headerContainer },
+                    { element: skillsContainer, dark: DARK_CLASSES.skillsContainer, light: LIGHT_CLASSES.skillsContainer },
+                    { element: footerContainer, dark: DARK_CLASSES.footerContainer, light: LIGHT_CLASSES.footerContainer },
+                    { element: summarySection, dark: DARK_CLASSES.summarySection, light: LIGHT_CLASSES.summarySection },
+                    { element: visionContactSection, dark: DARK_CLASSES.visionContactContainer, light: LIGHT_CLASSES.visionContactContainer },
+                    
+                ].forEach(({ element, dark, light }) => {
+                    const classesToRemove = isDark ? light : dark;
+                    const classesToAdd = isDark ? dark : light;
+                    element.classList.remove(...classesToRemove.filter(c => c));
+                    element.classList.add(...classesToAdd.filter(c => c));
+                });
+
+                // Handle Glassmorphism/Card Background
+                skillCards.forEach(card => {
+                    card.classList.remove(...opposite.cardBg, ...current.lightCardBg);
+                    card.classList.add(...current.cardBg);
+                });
+                
+                visionBlock.classList.remove(...opposite.sectionBg, ...current.lightSectionBg);
+                visionBlock.classList.add(...current.sectionBg);
+
+                contactBlock.classList.remove(...opposite.sectionBg, ...current.lightSectionBg);
+                contactBlock.classList.add(...current.sectionBg);
+
+                // 3. Text/Glow Effects and Visibility Fix
+                
+                summaryH2.classList.remove(opposite.titleGlow);
+                summaryH2.classList.add(current.titleGlow);
+                headerContainer.querySelector('h1').classList.remove(opposite.titleGlow);
+                headerContainer.querySelector('h1').classList.add(current.titleGlow);
+
+                summaryH2.classList.remove('accent-text', 'text-green-800');
+                summaryH2.classList.add(isDark ? 'accent-text' : 'text-green-800');
+
+                summaryP.classList.remove(opposite.textSlate400);
+                summaryP.classList.add(current.textSlate400);
+                
+                skillsH3.classList.remove(opposite.textWhite);
+                skillsH3.classList.add(current.textWhite);
+                
+                headerQuote.classList.remove(opposite.headerQuoteText);
+                headerQuote.classList.add(current.headerQuoteText);
+
+                footerP.classList.remove(opposite.footerText);
+                footerP.classList.add(current.footerText);
+                
+                footerItalic.classList.remove(opposite.footerItalicText);
+                footerItalic.classList.add(current.footerItalicText);
+
+                // Dynamic accent text coloring
+                accentTexts.forEach(el => {
+                    const darkClass = el.getAttribute('data-text-accent');
+                    const lightClass = darkClass.replace(/-\d+$/, '-700'); 
+                    el.classList.remove(isDark ? lightClass : darkClass);
+                    el.classList.add(isDark ? darkClass : lightClass);
+                });
+
+                // Dynamic body text coloring
+                bodyTexts.forEach(el => {
+                    el.classList.remove(opposite.textSlate300);
+                    el.classList.add(current.textSlate300);
+                });
+                
+                // 4. Image and Toggle
+                profileImage.classList.remove(opposite.imageRing);
+                profileImage.classList.add(current.imageRing);
+
+                if (isDark) {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                    toggleButton.classList.remove(LIGHT_CLASSES.toggleBg, LIGHT_CLASSES.neonToggle);
+                    toggleButton.classList.add(DARK_CLASSES.toggleBg, DARK_CLASSES.neonToggle);
+                    mainBody.classList.remove('light');
+                    mainBody.classList.add('dark');
+                } else {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                    toggleButton.classList.remove(DARK_CLASSES.toggleBg, DARK_CLASSES.neonToggle);
+                    toggleButton.classList.add(LIGHT_CLASSES.toggleBg, LIGHT_CLASSES.neonToggle);
+                    mainBody.classList.remove('dark');
+                    mainBody.classList.add('light');
+                }
+            };
+
+            toggleButton.addEventListener('click', () => {
+                const currentTheme = localStorage.getItem('theme') || 'dark';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+
+            const initialTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(initialTheme);
+        });
+    </script>
+</body>
+</html>
