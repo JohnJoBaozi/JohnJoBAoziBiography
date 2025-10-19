@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Short Biography of Johnrey Fuentes L.</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configure Tailwind to use the Inter font (or a similar clean sans-serif)
+        tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
+            theme: {
+                extend: {
+                    colors: {
+                        // Basketball Theme: Vibrant Orange and Deep Navy
+                        'primary-accent': '#F97316', // Vibrant Orange (Orange 600)
+                        'secondary-dark': '#1E293B', // Deep Navy (Slate 900)
+                        'dark-bg': '#0F172A', // Slate 900 for dark mode background
+                        'dark-card': '#1E293B', // Slate 800 for dark mode card background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles to enhance aesthetics and responsiveness */
+        body {
+            /* Default Light Mode Background */
+            background: #F8FAFC; /* Slate 50 */
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s ease;
+        }
+        
+        /* Dark Mode Body Background */
+        body.dark {
+            background: #0F172A; /* dark-bg */
+        }
+        
+        .profile-card {
+            /* Heavier shadow and orange border for a dynamic, ticket/jersey feel */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
+            border: 2px solid #F97316; /* Orange border for flair */
+        }
+        .profile-card:hover {
+            transform: scale(1.01); /* Slightly more pronounced lift */
+        }
+
+        .section-icon {
+            color: #F97316; /* primary-accent (Orange) */
+        }
+    </style>
+    <!-- Lucide icons for visual flair -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="profile-card bg-white dark:bg-dark-card max-w-4xl w-full rounded-3xl p-6 md:p-10">
+        
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors shadow-md hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-accent/50" aria-label="Toggle dark mode">
+            <!-- Icon will be dynamically set by JS -->
+            <i data-lucide="sun" class="w-5 h-5" id="theme-icon"></i>
+        </button>
+
+        <!-- Header and Main Profile (Jersey/Team Colors) -->
+        <header class="text-center mb-10">
+            <div class="w-28 h-28 bg-secondary-dark rounded-full mx-auto mb-4 overflow-hidden border-4 border-primary-accent/80 flex items-center justify-center text-5xl font-extrabold text-white">
+                JF
+                <!-- You can replace the initials with an image here:
+                <img src="https://placehold.co/120x120/1E3A8A/ffffff?text=Johnrey" alt="Profile Picture" class="w-full h-full object-cover">
+                -->
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-secondary-dark dark:text-gray-50 leading-tight">
+                Johnrey Fuentes L.
+            </h1>
+            <p class="text-primary-accent text-xl mt-2 font-black tracking-wider">
+                The Dynamic Playmaker
+            </p>
+            <div class="mt-4 flex justify-center space-x-4 text-gray-500 dark:text-gray-400">
+                <!-- Placeholder Contact Info -->
+                <span class="flex items-center text-sm">
+                    <i data-lucide="mail" class="w-4 h-4 mr-1 text-primary-accent"></i>
+                    ADD Email:johnreyfentes@example.com
+                </span>
+                <span class="flex items-center text-sm">
+                    <i data-lucide="map-pin" class="w-4 h-4 mr-1 text-primary-accent"></i>
+                    Add FB: johnrey fuentes
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Content Sections -->
+        <main class="space-y-8">
+
+            <!-- 1. Introduction & Core Values -->
+            <section class="p-6 bg-orange-50 dark:bg-dark-card/50 rounded-xl border border-primary-accent/20">
+                <h2 class="text-2xl font-bold text-secondary-dark dark:text-gray-100 flex items-center mb-3">
+                    <i data-lucide="bolt" class="w-6 h-6 mr-3 section-icon"></i>
+                    Motto:
+                </h2>
+                <p class="text-lg text-secondary-dark/90 dark:text-gray-300 leading-relaxed">
+                     Nothing last forever we can change the future.
+                </p>
+            </section>
+
+            <!-- 2. Education and Expertise (Skill Bars added here) -->
+            <section class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-700 shadow-md">
+                    <h3 class="text-xl font-bold text-secondary-dark dark:text-gray-100 flex items-center mb-2">
+                        <i data-lucide="award" class="w-5 h-5 mr-2 section-icon"></i>
+                        Academic Pursuit (Training Camp)
+                    </h3>
+                    <p class="text-base text-gray-700 dark:text-gray-300">
+                        I pursue education because i got bored on beating Lebron James Ass in Basketball.
+                    </p>
+                </div>
+                
+                <div class="p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-700 shadow-md">
+                    <h3 class="text-xl font-bold text-secondary-dark dark:text-gray-100 flex items-center mb-4">
+                        <i data-lucide="target" class="w-5 h-5 mr-2 section-icon"></i>
+                        Key Skills & Interests (Scouting Report)
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Skill Bar 1: Court Vision (Technology) - 90% -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1 text-sm font-semibold text-secondary-dark dark:text-gray-300">
+                                <span>Dancing</span>
+                                <span class="text-primary-accent">90%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-accent rounded-full transition-all duration-1000 ease-out" style="width: 90%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Bar 2: Vertical Leap (Creative) - 85% -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1 text-sm font-semibold text-secondary-dark dark:text-gray-300">
+                                <span>Borad Game (Checkers)</span>
+                                <span class="text-primary-accent">85%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-accent rounded-full transition-all duration-1000 ease-out" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Bar 3: Personal Defense (Off-Court) - 75% -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1 text-sm font-semibold text-secondary-dark dark:text-gray-300">
+                                <span>Basketball Professionalism (BAller)</span>
+                                <span class="text-primary-accent">100%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-accent rounded-full transition-all duration-1000 ease-out" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. The Human Element (Content updated for positivity) -->
+            <section class="p-6 bg-orange-50 dark:bg-dark-card/50 rounded-xl border border-primary-accent/20">
+                <h2 class="text-2xl font-bold text-secondary-dark dark:text-gray-100 flex items-center mb-3">
+                    <i data-lucide="users" class="w-6 h-6 mr-3 section-icon"></i>
+                    The Team Player (Championship Spirit)
+                </h2>
+                <p class="text-lg text-secondary-dark/90 dark:text-gray-300 leading-relaxed">
+                    My Confidence is so High, that when it comes to basketball, Im  the strongest guy! Even Lebron James is scared of me and Kobe bryant kill himself becasue of my aura. My potential is so massive, I earned the title of the greatest scorer, rebounder, and passer the world has ever seen. He once scored an unprecedented **100 points, 100 rebounds, and 100 assists** in a single game, becoming the first player in history to achieve the **Triple-Triple-Double**. This legendary feat showcases his unmatched dominance and spirit on the court!
+                </p>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 A Tribute to Johnrey Fuentes L. | Game On.</p>
+        </footer>
+    </div>
+
+    <!-- Initialize Lucide icons and Theme Toggle Logic -->
+    <script>
+        // Use a function to safely initialize and handle the theme
+        function initializeTheme() {
+            lucide.createIcons();
+            
+            const body = document.body;
+            const toggleButton = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+
+            // 1. Check for saved preference in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            
+            // 2. Set initial theme based on preference or system settings
+            let isDarkMode = false;
+            
+            if (savedTheme === 'dark') {
+                isDarkMode = true;
+            } else if (savedTheme === 'light') {
+                isDarkMode = false;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                // Default to system preference if no saved preference
+                isDarkMode = true;
+            }
+
+            // Function to apply the theme
+            const applyTheme = (isDark) => {
+                if (isDark) {
+                    body.classList.add('dark');
+                    // Change icon to moon
+                    themeIcon.setAttribute('data-lucide', 'moon');
+                } else {
+                    body.classList.remove('dark');
+                    // Change icon to sun
+                    themeIcon.setAttribute('data-lucide', 'sun');
+                }
+                // Re-render icons after changing the attribute
+                lucide.createIcons();
+            };
+
+            // Apply initial theme
+            applyTheme(isDarkMode);
+
+            // 3. Add click listener to toggle the theme
+            toggleButton.addEventListener('click', () => {
+                const newIsDarkMode = !body.classList.contains('dark');
+                applyTheme(newIsDarkMode);
+                
+                // Save preference
+                localStorage.setItem('theme', newIsDarkMode ? 'dark' : 'light');
+            });
+        }
+        
+        // Wait for the window to load to ensure all elements are available
+        window.onload = initializeTheme;
+    </script>
+</body>
+</html>

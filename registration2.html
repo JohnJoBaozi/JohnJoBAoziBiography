@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Johnrey biographhy</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Boxicons for input icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+        /* Custom Font and Base Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        /* Updated Variables for a more natural, deep cosmic feel */
+        :root {
+            --color-space-dark: #0A192F; /* Deep Navy Space */
+            --color-nebula: #172A45; /* Darker, organic blue-purple base */
+            --color-glow-primary: #FFC868; /* Soft Gold/Amber glow */
+            --color-glow-secondary: #4AD9E9; /* Aurora Blue accent */
+            --color-text-light: #e0e7ff;
+            --color-input-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- COSMIC STAR BACKGROUND EFFECT --- */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--color-space-dark);
+            color: var(--color-text-light);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- Star Field Generator (Stars) --- */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        /* Twinkling effect keyframes */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Generating 3 layers of stars (small, medium, large) using box-shadow */
+        .stars::before,
+        .stars::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            animation: twinkle 5s infinite alternate;
+        }
+
+        /* Smallest stars (white, low opacity) */
+        .stars::before {
+            box-shadow: 
+                -200px 30px 0 0.5px rgba(255, 255, 255, 0.6),
+                400px 100px 0 0.5px rgba(255, 255, 255, 0.6),
+                -50px 250px 0 0.5px rgba(255, 255, 255, 0.6),
+                700px 320px 0 0.5px rgba(255, 255, 255, 0.6),
+                -150px 400px 0 0.5px rgba(255, 255, 255, 0.6),
+                800px 500px 0 0.5px rgba(255, 255, 255, 0.6),
+                30px 600px 0 0.5px rgba(255, 255, 255, 0.6),
+                -500px 750px 0 0.5px rgba(255, 255, 255, 0.6),
+                600px 850px 0 0.5px rgba(255, 255, 255, 0.6);
+            /* Add more star positions for better coverage */
+            filter: blur(0.3px);
+        }
+
+        /* Larger stars (colored/glowing, higher opacity) */
+        .stars::after {
+            box-shadow: 
+                100px 50px 0 1px var(--color-glow-secondary),
+                -350px 180px 0 1px var(--color-glow-primary),
+                550px 450px 0 1px var(--color-glow-secondary),
+                -50px 800px 0 1px var(--color-glow-primary),
+                -650px 20px 0 1px var(--color-glow-secondary),
+                200px 700px 0 1px var(--color-glow-primary);
+            animation-duration: 9s; /* Slower twinkle */
+            animation-delay: 2s;
+            filter: blur(1.5px); /* Softer blur for natural look */
+        }
+
+        /* --- FORM CONTAINER --- */
+        .form-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background: var(--color-nebula); /* Darker, organic blue-purple base */
+            border-radius: 20px;
+            /* Soft Amber glow around the form */
+            box-shadow: 0 0 50px rgba(255, 200, 104, 0.2); 
+            z-index: 10;
+            position: relative;
+            border: 1px solid rgba(255, 200, 104, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: scale(1.01); /* Slightly reduced scale effect */
+            /* Aurora Blue glow on hover */
+            box-shadow: 0 0 80px rgba(74, 217, 233, 0.4); 
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--color-glow-secondary);
+            /* Aurora blue title glow */
+            text-shadow: 0 0 10px rgba(74, 217, 233, 0.8);
+        }
+
+        /* --- INPUTS AND SELECT --- */
+        .input-box {
+            position: relative;
+            margin: 25px 0;
+        }
+
+        .input-box input,
+        .input-box select { /* Target both input and select elements */
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            background: var(--color-input-bg);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            outline: none;
+            font-size: 16px;
+            color: var(--color-text-light);
+            transition: all 0.3s;
+        }
+        
+        /* Specific styling for the SELECT element */
+        .input-box select {
+            -webkit-appearance: none; 
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        /* Styling for options list background */
+        .input-box select option {
+            background: var(--color-nebula); 
+            color: var(--color-text-light);
+        }
+        
+        /* Style the placeholder text in the select box */
+        .input-box select:required:invalid {
+            color: #94a3b8;
+        }
+
+        .input-box input:focus,
+        .input-box select:focus {
+            border-color: var(--color-glow-primary); /* Gold border on focus */
+            box-shadow: 0 0 10px rgba(255, 200, 104, 0.7); /* Gold glow on focus */
+        }
+
+        .input-box input::placeholder {
+            color: #94a3b8;
+            opacity: 0.8;
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: var(--color-glow-secondary); /* Aurora blue icons */
+        }
+
+        /* --- BUTTON --- */
+        .btn {
+            width: 100%;
+            height: 50px;
+            /* Blue/Cyan to Deep Blue Gradient */
+            background: linear-gradient(90deg, #4AD9E9, #2C87D6); 
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 4px 20px rgba(74, 217, 233, 0.4); /* Blue shadow */
+            transition: all 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            /* Deep Blue to Gold/Amber Gradient on hover */
+            background: linear-gradient(90deg, #2C87D6, #FFC868); 
+            box-shadow: 0 6px 30px rgba(255, 200, 104, 0.6); /* Gold shadow on hover */
+            transform: translateY(-3px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* --- Social Icons --- */
+        .social-login p {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--color-glow-secondary); /* Aurora blue border */
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--color-glow-primary); /* Gold icons */
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--color-glow-secondary);
+            color: var(--color-space-dark);
+            box-shadow: 0 0 15px var(--color-glow-secondary);
+        }
+
+        /* --- Footer Link (Optional: if the user needs a link back to login) --- */
+        .footer-link {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .footer-link a {
+            color: var(--color-glow-secondary);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer-link a:hover {
+            color: var(--color-glow-primary);
+            text-decoration: underline;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 500px) {
+            .form-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Starfield container (CSS generates stars) -->
+    <div class="stars"></div>
+
+    <div class="form-container">
+      <h1>Register</h1>
+      <form action="#">
+        <!-- Username Input -->
+        <div class="input-box">
+          <input type="text" placeholder="Stellar Username" required />
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <!-- Email Input -->
+        <div class="input-box">
+          <input type="email" placeholder="Nebula Email" required />
+          <i class="bx bxs-envelope"></i>
+        </div>
+        
+        <!-- Course Select Dropdown -->
+        <div class="input-box">
+          <select id="course" required>
+            <option value="" disabled selected>Select Your Orbital Course</option>
+            <option value="BSED">BSED (Bachelor of Secondary Education)</option>
+            <option value="BEED">BEED (Bachelor of Elementary Education)</option>
+            <option value="HM">HM (Hospitality Management)</option>
+            <option value="TM">TM (Tourism Management)</option>
+            <option value="COMTECH">COMTECH (Computer Technology)</option>
+            <option value="ELECTRONICS">ELECTRONICS (Electronics Technology)</option>
+          </select>
+          <!-- Using a dropdown icon that matches the theme -->
+          <i class="bx bx-chevron-down"></i> 
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-box">
+          <input type="password" placeholder="Secure Astropass" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <!-- Confirm Password Input -->
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Astropass" required />
+          <i class="bx bxs-lock"></i>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn">Launch Registration</button>
+      </form>
+
+      <!-- Social Login Section -->
+      <div class="social-login">
+          <p>Or warp-speed register with:</p>
+          <div class="social-icons">
+              <a href="#"><i class="bx bxl-google"></i></a>
+              <a href="#"><i class="bx bxl-facebook"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+          </div>
+      </div>
+
+      <div class="footer-link">
+          Already explored the galaxy? <a href="#">Login Here</a>
+      </div>
+    </div>
+    
+  </body>
+</html>
