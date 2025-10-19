@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael James Estrera | Professional Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-green: #008000; /* Original Royal Green */
+            --emerald-green: #047857; /* Deeper, rich emerald for accents */
+            --forest-green: #14532d; /* Even deeper for backgrounds */
+            --gold-accent: #d4af37;
+            --light-gold-accent: #f0e68c;
+            --charcoal: #2a2a2a;
+            --light-bg: #f5f5f5;
+            --dark-text: #333;
+            --light-text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--charcoal);
+            color: var(--light-text);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--light-text);
+        }
+        
+        /* FIX: Ensure headers in dark mode default to light text from the body style, 
+               but apply specific color where needed. Tailwind classes handle h1/h4 */
+        .section-card h2, .section-card h4 {
+            /* The specific Tailwind classes on the elements must be kept to ensure they exist. 
+               The CSS overrides handle the colors based on body.light/dark. */
+            color: var(--emerald-green); /* Default to dark mode color */
+        }
+
+        /* Subtle Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMuorgvMjAwMC9zdmciPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZmlsbD0iIzQ0NDQ0NCIgZD0iTTBIFjYwSDBWMHpIvjxwYXRoIGQ9Ik0wIDBjMTYuNzA4IDAgMzAgMTMuNjU3IDMwIDMwczEzLjY1NyAzMCAzMCAzMCIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9Ii4zIi8+PC9nPg==');
+            background-size: 30px 30px;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background-color: var(--forest-green);
+            background-image: linear-gradient(rgba(20,83,45,0.8), rgba(20,83,45,0.8)), url('https://images.unsplash.com/photo-1549682524-ec115668350b?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+        }
+        /* FIX: Corrected a typo in the linear-gradient rgba opacity: rgba(20,83,45,0.8) instead of rgba(20,83,45,0. */
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Profile Image */
+        #profile-image-michael {
+            border: 5px solid var(--emerald-green);
+            box-shadow: 0 0 20px rgba(4, 120, 87, 0.6);
+            transition: all 0.4s ease-in-out;
+        }
+        #profile-image-michael:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 30px var(--gold-accent);
+        }
+
+        /* Interactive Elements */
+        .interactive-link {
+            color: var(--light-gold-accent);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            display: inline-block;
+        }
+        .interactive-link:hover {
+            color: var(--royal-green);
+            transform: translateY(-2px);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+        }
+        .interactive-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--royal-green);
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
+        .interactive-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--royal-green);
+        }
+        
+        /* Card-like Sections */
+        .section-card {
+            background-color: var(--charcoal);
+            border: 1px solid rgba(var(--emerald-green-rgb), 0.2);
+            border-left: 5px solid var(--emerald-green);
+            transition: all 0.3s ease-in-out;
+        }
+        .section-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--royal-green);
+            transform: translateY(-5px);
+        }
+
+        /* Progress Bar Styling */
+        .progress-container {
+            background-color: rgba(var(--emerald-green-rgb), 0.2);
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            background-color: var(--royal-green);
+            height: 100%;
+            border-radius: 5px;
+            text-align: right;
+            color: var(--light-text);
+            font-size: 0.75rem;
+            line-height: 10px;
+            transition: width 1s ease-out;
+        }
+
+        /* Light Mode Theming */
+        body.light {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+        }
+        /* FIX: Override h1-h4 colors globally for light mode */
+        body.light h1, body.light h2, body.light h3, body.light h4 {
+            color: var(--dark-text); 
+        }
+
+        body.light .hero-section {
+            background-color: var(--emerald-green);
+            background-image: linear-gradient(rgba(4,120,87,0.85), rgba(4,120,87,0.85)), url('https://images.unsplash.com/photo-1549682524-ec115668350b?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            color: white;
+        }
+        body.light .hero-section::before {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        /* FIX: Override hero-section h1 color to white in light mode */
+        body.light .hero-section h1 {
+            color: white;
+        }
+        /* FIX: Override hero-section p color to white in light mode */
+        body.light .hero-section p {
+            color: white;
+        }
+        /* FIX: Override h2 section title color to royal green in light mode */
+        body.light .section-card h2 {
+            color: var(--royal-green);
+        }
+        /* FIX: Override h4 skill sub-title color to dark text in light mode */
+        body.light .section-card h4 {
+            color: var(--dark-text);
+        }
+
+        body.light #profile-image-michael {
+            border-color: var(--royal-green);
+            box-shadow: 0 0 15px rgba(0, 128, 0, 0.3);
+        }
+        body.light #profile-image-michael:hover {
+            box-shadow: 0 0 25px rgba(0, 128, 0, 0.5);
+        }
+        body.light .interactive-link {
+            color: var(--royal-green);
+        }
+        body.light .interactive-link:hover {
+            color: var(--emerald-green);
+            text-shadow: none;
+        }
+        body.light .interactive-link::after {
+            background: var(--emerald-green);
+        }
+        body.light .interactive-link:hover::after {
+            background: var(--emerald-green);
+        }
+        body.light .section-card {
+            background-color: white;
+            border-color: rgba(0, 128, 0, 0.3);
+            border-left-color: var(--royal-green);
+        }
+        body.light .section-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 128, 0, 0.3);
+        }
+        body.light .progress-container {
+            background-color: rgba(0, 128, 0, 0.1);
+        }
+        body.light .progress-bar {
+            background-color: var(--royal-green);
+            color: white;
+        }
+        
+        /* Helper for RGB conversion (for rgba colors) */
+        :root {
+            --emerald-green-rgb: 4, 120, 87;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 dark" id="body-michael">
+    <div class="max-w-7xl mx-auto bg-charcoal shadow-2xl rounded-2xl overflow-hidden" id="main-container-michael">
+        
+        <header class="hero-section">
+            <div class="hero-content">
+                <img 
+                    src="https://placehold.co/150x150/14532d/f0e68c?text=M.J.E"
+                    alt="Profile image of Michael James Estrera" 
+                    class="w-40 h-40 rounded-full mx-auto mb-6 object-cover transition duration-500"
+                    id="profile-image-michael" 
+                >
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 text-light-gold-accent">Michael James Estrera</h1>
+                <p class="text-xl md:text-2xl font-light text-light-gold-accent opacity-90 italic">
+                    "Trust the timing of your life." <span class="text-sm">(Let's GO!)</span>
+                </p>
+            </div>
+            <button id="theme-toggle-michael" class="absolute top-6 right-6 p-3 rounded-full bg-slate-700 text-gold-accent shadow-lg hover:bg-slate-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gold-accent">
+                <svg id="sun-icon-michael" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg id="moon-icon-michael" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-10 p-10 bg-gray-900">
+            
+            <section class="md:col-span-1 space-y-8">
+                <div class="p-6 rounded-lg shadow-xl section-card">
+                    <h2 class="text-3xl font-bold mb-4 text-emerald-green">Summary</h2>
+                    <p class="text-light-text leading-relaxed">
+                         I am a soft hearted person who cares deeply about others. l am also very dedicated to reaching my goals, especially in the field of information Technology, I work hard and stay focused on improving and learning more every da. And I am Born In August 27, 2007.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-lg shadow-xl section-card">
+                    <h2 class="text-3xl font-bold mb-4 text-emerald-green">Contact</h2>
+                    <p class="text-light-text mb-2">
+                        Email: <a href="mailto:michael.estrera@example.com" class="interactive-link">estrera.michaeljames@llcc.edu.ph
+</a>
+                    </p>
+                    <p class="text-light-text mb-2">
+                        ADD FB: <a href="https://linkedin.com/in/michaelestrera" target="_blank" class="interactive-link">https://www.facebook.com/michaeljames.estrera</a>
+                    </p>
+                    <p class="text-light-text">
+                        Location: Cebu, Marigondon Lapu-lapu City
+                    </p>
+                </div>
+            </section>
+
+            <section class="md:col-span-2 space-y-8">
+                <div class="p-6 rounded-lg shadow-xl section-card">
+                    <h2 class="text-3xl font-bold mb-6 text-emerald-green">Core Skills</h2>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent">Checkers</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 90%;">90%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent">Cooking</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100%;">100%</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent">Chess</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 85%;">85%</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent">Volley Ball </h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 88%;">88%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-lg shadow-xl section-card">
+                    <h2 class="text-3xl font-bold mb-6 text-emerald-green">Featured Interests & Motivations</h2>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent">Interest.</h4>
+                        <p class="text-light-text text-sm italic mb-2">To be Succesfull in my life.</p>
+                        <p class="text-light-text leading-relaxed">
+                           
+                        </p>
+                    </div>
+
+                    <div class="mb-6 border-l-4 border-royal-green pl-4">
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent">Key Motivation: Family</h4>
+                        <p class="text-light-text leading-relaxed">
+                            My family is my biggest motivation because they inspire me to work hard, stay focused, and always strive for a better future. Their love and support push me to overcome challenges and achieve my goals.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-light-gold-accent"></h4>
+                        <p class="text-light-text text-sm italic mb-2"></p>
+                        <p class="text-light-text leading-relaxed">
+                           
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="p-6 bg-charcoal text-center text-gray-500 text-sm border-t border-emerald-green/30" id="footer-michael">
+            <p>&copy; 2025 Michael James Estrera. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('theme-toggle-michael');
+            const sunIcon = document.getElementById('sun-icon-michael');
+            const moonIcon = document.getElementById('moon-icon-michael');
+            const body = document.getElementById('body-michael');
+            const mainContainer = document.getElementById('main-container-michael');
+            const heroSection = document.querySelector('.hero-section');
+            const paragraphTexts = document.querySelectorAll('p, ol, li');
+            
+            // NOTE: The verbose dynamic class logic has been removed as it was incompatible with Tailwind's compilation process.
+            // The theme switch now relies on toggling the 'light' class on the body, letting the existing CSS handle the styling.
+
+            // The main-container bg is handled by its explicit class in the HTML (bg-charcoal) which is fine for dark mode, 
+            // and we'll manually change it for light mode since we removed the complex class logic.
+            const DARK_MAIN_BG = 'bg-charcoal';
+            const LIGHT_MAIN_BG = 'bg-white';
+            const DARK_MAIN_GRID_BG = 'bg-gray-900';
+            const LIGHT_MAIN_GRID_BG = 'bg-[--light-bg]'; // Use custom CSS var for consistency
+            
+            // Update the main content area background (which uses a Tailwind class: bg-gray-900)
+            const mainContent = document.querySelector('main');
+            
+            const applyTheme = (theme) => {
+                const isLight = theme === 'light';
+
+                if (isLight) {
+                    body.classList.remove('dark');
+                    body.classList.add('light');
+
+                    // Manually update the Tailwind classes that weren't covered by CSS
+                    mainContainer.classList.remove(DARK_MAIN_BG);
+                    mainContainer.classList.add(LIGHT_MAIN_BG);
+                    mainContent.classList.remove(DARK_MAIN_GRID_BG);
+                    // Use a full Tailwind class here, as the CSS only covers the body/card/hero colors
+                    mainContent.classList.add('bg-gray-100'); 
+
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    body.classList.remove('light');
+                    body.classList.add('dark');
+
+                    mainContainer.classList.remove(LIGHT_MAIN_BG);
+                    mainContainer.classList.add(DARK_MAIN_BG);
+                    mainContent.classList.remove('bg-gray-100');
+                    mainContent.classList.add(DARK_MAIN_GRID_BG);
+
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+
+                // FIX: Remove manual paragraph color toggling. It is now handled by the body.light CSS rule (body.light {color: var(--dark-text)})
+                // The paragraph texts in the hero section are manually overridden in the CSS now for light mode.
+            };
+
+            toggleButton.addEventListener('click', () => {
+                const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme-michael', newTheme);
+                applyTheme(newTheme);
+            });
+
+            // Set initial theme
+            const initialTheme = localStorage.getItem('theme-michael') || (body.classList.contains('dark') ? 'dark' : 'light');
+            applyTheme(initialTheme);
+
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%'; // Reset to 0 for animation
+                setTimeout(() => {
+                    bar.style.width = width; // Animate to target width
+                }, 500); // Delay animation slightly after load
+            });
+        });
+    </script>
+</body>
+</html>
