@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker Registration Form</title>
-    <!-- Custom CSS integrated here -->
     <style>
         /* Font import and global reset */
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
@@ -243,6 +242,32 @@
         input[type="submit"]:active {
             opacity: 0.6;
         }
+        
+        /* New CSS for the Thank You message */
+        #thankYouMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2000;
+            font-size: 2.5em;
+            color: #0f0;
+            text-shadow: 0 0 15px #0f0;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 2px solid #0f0;
+            /* Start hidden */
+            opacity: 0; 
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        
+        #thankYouMessage.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         /* Media queries for responsive design */
         /* Tablet/Medium Screens: fewer, larger tiles */
@@ -269,8 +294,6 @@
 </head>
 <body>
 <section>
-    <!-- Background span elements for the Matrix rain effect (shortened for brevity here) -->
-    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -311,27 +334,24 @@
     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     
-    <!-- Registration form overlay -->
     <div class="signin">
         <div class="content">
             <h2>New User Registration</h2>
-            <div class="form">
+            <form class="form" id="registrationForm">
                 <div class="inputBox">
                     <input type="text" required>
                     <i>Username</i>
                 </div>
                 
-                <!-- NEW: Gender Selection Dropdown -->
                 <div class="inputBox">
                     <select required>
                         <option value="" disabled selected>Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other / TANGINAMO BAKLA</option>
+                        <option value="Prefer Not to Say">Other / Prefer Not to Say</option> 
                     </select>
                 </div>
 
-                <!-- Course Selection Dropdown -->
                 <div class="inputBox">
                     <select required>
                         <option value="" disabled selected>Select Course</option>
@@ -362,9 +382,45 @@
                 <div class="inputBox">
                     <input type="submit" value="Register">
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+    
+    <div id="thankYouMessage">
+        You are now registered. Thank you.
+    </div>
+
 </section>
+
+<script>
+    // Get the form element and the message element
+    const form = document.getElementById('registrationForm');
+    const message = document.getElementById('thankYouMessage');
+    const signin = document.querySelector('.signin');
+
+    // Add an event listener for when the form is submitted
+    form.addEventListener('submit', function(event) {
+        // Prevent the default form submission behavior (which is to refresh the page)
+        event.preventDefault();
+
+        // 1. Hide the registration form
+        signin.style.display = 'none';
+
+        // 2. Show the thank you message with a smooth transition
+        message.classList.add('show');
+
+        // Optional: Hide the message and show the form again after a few seconds
+        setTimeout(() => {
+            message.classList.remove('show');
+            // Reset the form or navigate away in a real application
+            // For now, we'll just show the form again after the message fades out
+            setTimeout(() => {
+                 signin.style.display = 'flex'; // Show the form again
+                 form.reset(); // Clear the form fields
+            }, 600); // Wait for the CSS transition (0.5s) to complete
+        }, 3000); // Show the message for 3 seconds
+    });
+</script>
+
 </body>
 </html>
